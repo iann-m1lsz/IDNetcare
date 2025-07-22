@@ -1,0 +1,232 @@
+/* ======================================================= */
+/* == PENGATURAN WARNA & GAYA (BISA ANDA GANTI DI SINI) == */
+/* ======================================================= */
+:root {
+    --warna-utama: #007BFF; /* Biru */
+    --warna-sekunder: #28a745; /* Hijau untuk tombol sekunder */
+    --warna-teks: #333333; /* Hitam untuk teks */
+    --warna-latar: #FFFFFF; /* Putih */
+    --warna-latar-abu: #f8f9fa; /* Abu-abu muda */
+}
+
+/* ======================================================= */
+/* == GAYA DASAR (SEBAIKNYA JANGAN DIUBAH)              == */
+/* ======================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--warna-teks);
+    background-color: var(--warna-latar);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--warna-utama);
+}
+
+/* Header & Navigasi */
+.header {
+    background: var(--warna-latar);
+    padding: 1rem 0;
+    border-bottom: 1px solid #eeeeee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--warna-utama);
+}
+
+.nav-links a {
+    color: var(--warna-teks);
+    margin-left: 20px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--warna-utama);
+}
+
+/* Hero Section (Full Layout) */
+.hero {
+    background-color: var(--warna-latar-abu);
+    text-align: center;
+    padding: 0; /* Menghapus padding, biarkan elemen memanfaatkan seluruh tinggi layar */
+    height: 100vh; /* Full screen height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--warna-teks);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: transform 0.3s;
+    color: #fff;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-primary {
+    background-color: var(--warna-utama);
+}
+
+.btn-secondary {
+    background-color: var(--warna-sekunder);
+    margin-left: 10px;
+}
+
+/* Layanan Section */
+.services {
+    padding: 60px 20px;
+    text-align: center;
+    margin-top: 20px;
+    opacity: 0; /* Mulai dengan opacity 0 */
+    transition: opacity 1s ease-in-out; /* Transisi untuk memunculkan */
+}
+
+.services.show {
+    opacity: 1; /* Ketika elemen ditampilkan, opacity menjadi 1 */
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+.services-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    background: var(--warna-latar);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    width: 300px;
+    text-align: center;
+}
+
+.service-card .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--warna-utama);
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Animasi untuk Layanan */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.services-grid .service-card {
+    opacity: 0; /* Mulai dengan opacity 0 */
+    transform: translateY(50px); /* Mulai dengan posisi lebih rendah */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.services-grid .service-card.show {
+    opacity: 1; /* Ketika elemen muncul, opacity menjadi 1 */
+    transform: translateY(0); /* Mengembalikan posisi elemen ke tempatnya */
+}
+
+/* Ketika card keluar atau menghilang */
+.services-grid .service-card.hidden {
+    opacity: 0; /* Membuat card menghilang */
+    transform: translateY(50px); /* Menurunkan posisi card */
+}
+
+/* CTA Section (Ajakan Bergabung) */
+.cta {
+    background-color: var(--warna-utama);
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.cta h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.cta p {
+    margin-bottom: 2rem;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Penyesuaian untuk layar kecil (HP) */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .btn-secondary {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}

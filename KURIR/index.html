@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daeng Kurir - Solusi Cepat Urusan Anda di Makassar</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Link ke file CSS eksternal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar container">
+            <a href="#" class="logo">Daeng Kurir</a>
+            <div class="nav-links">
+                <a href="#">Layanan</a>
+                <a href="#">Jadi Mitra Driver</a>
+                <a href="#">Kontak</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+    <h1>Solusi Cepat Urusan Anda di Makassar</h1>
+    <p>Butuh ojek, kirim barang, atau pesan makanan favorit? Serahkan pada kami. Cepat, aman, dan terpercaya untuk warga Makassar.</p>
+    <div>
+        <a href="#" class="btn btn-primary">📲 Download Aplikasi</a>
+        <a href="#" class="btn btn-secondary">🤝 Jadi Mitra Driver</a>
+    </div>
+</section>
+
+<section class="services">
+    <div class="container">
+        <h2 class="section-title">Layanan Andalan Kami</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="icon">🛵</div>
+                <h3>Kurir Cepat</h3>
+                <p>Antar dokumen dan paket ke seluruh penjuru kota dengan aman dan tepat waktu.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">🍔</div>
+                <h3>Pesan Makanan</h3>
+                <p>Nikmati kuliner khas Makassar dari warung favoritmu, langsung diantar ke depan pintu.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon">🛍️</div>
+                <h3>Jasa Belanja</h3>
+                <p>Titip belanja di pasar atau supermarket tanpa perlu keluar rumah. Biar kami yang antarkan.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+        
+        <section class="cta">
+             <div class="container">
+                <h2>Siap Menjadi Bagian dari Kami?</h2>
+                <p>Jadilah pahlawan di jalanan dan dapatkan penghasilan fleksibel dengan menjadi mitra driver kami.</p>
+                <a href="#" class="btn btn-secondary">Daftar Sekarang Juga</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Daeng Kurir. Semua Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <script>
+    // Membuat observer untuk section layanan
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            // Jika elemen sudah muncul di layar
+            if (entry.isIntersecting) {
+                // Menambahkan kelas 'show' ke elemen yang terdeteksi
+                entry.target.classList.add('show');
+                entry.target.classList.remove('hidden'); // Menghapus kelas 'hidden' saat muncul
+            } else {
+                // Ketika elemen tidak terlihat, beri kelas 'hidden'
+                entry.target.classList.add('hidden');
+                entry.target.classList.remove('show'); // Menghapus kelas 'show' saat hilang
+            }
+        });
+    }, { threshold: 0.5 }); // Elemen dianggap terlihat jika setidaknya 50% bagian elemen terlihat
+
+    // Mendaftarkan observer untuk section layanan
+    const servicesSection = document.querySelector('.services');
+    observer.observe(servicesSection);
+
+    // Mendaftarkan observer untuk setiap card layanan
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(card => {
+        observer.observe(card);
+    });
+</script>
+
+</body>
+</html>
